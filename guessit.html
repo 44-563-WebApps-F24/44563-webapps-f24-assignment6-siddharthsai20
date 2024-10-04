@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <title>Interactive Color Guessing Game</title>
+ </head>
+<body>
+    <h1>Guess the Color - siddharth sai </h1>
+<h2>Getting input</h2>
+
+<form>
+    <label for="secretColor">Guess the color: </label>
+    <input type="password" id="secretColor" value="Red"><br><br>
+
+    <label for="colorGuess">Enter a guess: </label>
+    <input type="text" id="colorGuess"><br><br>
+
+    <input type="button" onclick="processColor()" value="Check the color">
+</form>
+
+
+<p id="result">
+</p>
+
+<div>
+    <h2>Awesome Desserts</h2>
+    <img id="dessertsImages" src="Nutella Crepes1.jpg" width="200" height="200" onclick="nextImage()">
+</div>
+
+<script>
+
+    let attempts = 0;
+    let wrong = 0;
+
+    function processColor() {
+        const secretColor = document.getElementById('secretColor').value.toLowerCase();
+        const colorGuess = document.getElementById('colorGuess').value.toLowerCase();
+
+        attempts++;
+        if (secretColor !== colorGuess) {
+            wrong++;
+            alert("That was not it");
+        } else {
+            alert("You got it!");
+        }
+        document.getElementById('result').innerHTML = `Attempts: ${attempts}, Wrong guesses: ${wrong}`;
+    }
+    let showing = 1;
+    function nextImage() {
+        const img = document.getElementById('dessertsImages');
+        switch (showing) {
+            case 1:
+                img.src = 'mousee.jpg';
+                showing = 2;
+                break;
+            case 2:
+                img.src = 'yogurt parfait.jpg';
+                showing = 3;
+                break;
+            case 3:
+                img.src = 'nutella crepes1.jpg';
+                showing = 1;
+                break;
+        }
+    }
+
+</script>
+</body>
+</html> 
