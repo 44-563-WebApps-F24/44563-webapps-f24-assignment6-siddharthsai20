@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Math Game</title>
+
+</head>
+
+<body>
+    <p id="radio_result">The computed result will be displayed here</p>
+    <script>
+        function powerSum() {
+            let first = parseInt(document.getElementById("first_value").value);
+            let second = parseInt(document.getElementById("second_value").value);
+            let sum = 0;
+            for (let i = 0; i < first; i++) {
+                sum += Math.pow(second, i); 
+            }
+            document.getElementById("result").innerHTML = `Sum of ${first} powers with base ${second} is ${sum}`;
+        }
+        function processRadio() {
+            let first = parseFloat(document.getElementById("first_value").value);
+            let second = parseFloat(document.getElementById("second_value").value);
+            let operation = document.querySelector('input[name="operation"]:checked').value;
+            let result;
+
+            switch (operation) {
+                case "max":
+                    result = Math.max(first, second);
+                    break;
+                case "min":
+                    result = Math.min(first, second);
+                    break;
+                case "avg":
+                    result = (first + second) / 2;
+                    break;
+                case "geo":
+                    result = Math.sqrt(first * second); 
+                    break;
+            }
+
+            document.getElementById("radio_result").innerHTML = `Computed ${operation} with values ${first} and ${second} with result ${result}`;
+        }
+    </script>
+</body>
+</html>
