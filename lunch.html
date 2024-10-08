@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Lunch page</title>
+</head>
+
+<body>
+
+    <h2>siddharth sai myneni orders a lunch</h2>
+    <script>
+        let my_lunch = {};
+
+        function startLunch() {
+            my_lunch = {};
+
+            my_lunch.drink = document.getElementById("drink").checked;
+            my_lunch.side = document.getElementById("side").checked;
+            my_lunch.in = document.getElementById("in").checked;
+
+            document.getElementById("lunch_result").innerHTML = `Lunch Order: <br>
+                Drink: ${my_lunch.drink ? "Yes" : "No"}<br>
+                Side: ${my_lunch.side ? "Yes" : "No"}<br>
+                Eat in: ${my_lunch.in ? "Yes" : "No"}`;
+        }
+
+    </script>
+
+</body>
+
+</html>
